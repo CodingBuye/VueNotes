@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>点击次数：{{counter}}</h2>
+    <button v-on:click="counter++">按钮点击1</button>
+    <button v-on:click="btnClick">按钮点击2</button>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            counter:0
+        },
+        methods:{
+            btnClick() {
+                this.counter++;
+            }
+        }
+    });
+</script>
+</body>
+</html>
