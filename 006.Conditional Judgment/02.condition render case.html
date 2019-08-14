@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <span v-if="type==='username'">
+        <label for="username">用户名登录</label>
+        <input type="text" placeholder="填入用户名"
+               key="username-input"
+               id="username" name="username">
+    </span>
+    <span v-if="type==='email'">
+        <label for="email">邮箱登录</label>
+        <input type="text" placeholder="填入邮箱"
+               key="email-input"
+               id="email" name="email">
+    </span>
+    <button @click="changeLoginType">切换登录类型</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el:'#app',
+        data:{
+            type:'username'
+        },
+        methods:{
+            changeLoginType(){
+                this.type = (this.type==="username"?"email":"username");
+            }
+        }
+    });
+</script>
+</body>
+</html>
