@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--3. 使用组件-->
+    <my-cpn/>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    /**
+     * 组件的使用分成三个步骤：
+     * 1. 创建组件构造器
+     * 2. 注册组件
+     * 3. 使用组件
+     */
+
+    // 1. 创建组件构造器
+    const myComponent = Vue.extend({
+        template:`
+            <div>
+                <h2>组件标题</h2>
+                <p>我是组件中的一个段落内容</p>
+            </div>
+        `
+    });
+
+    // 2. 注册组件，并且定义组件标签的名称
+    Vue.component('my-cpn', myComponent);
+
+    let app = new Vue({
+        el:"#app"
+    });
+
+</script>
+</body>
+</html>
