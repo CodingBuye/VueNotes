@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="movie in movies">{{movie}}</li>
+    </ul>
+
+    <ul>
+        <li v-for="(movie, index) in movies">{{index}}-{{movie}}</li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            movies: [
+                '星际穿越',
+                '盗梦空间',
+                '大话西游',
+                '少年派的奇幻之旅'
+            ]
+        }
+    });
+</script>
+</body>
+</html>
