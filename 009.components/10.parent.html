@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <parent-cpn></parent-cpn>
+</div>
+
+<template id="parent">
+    <child-cpn></child-cpn>
+</template>
+
+<template id="child">
+    <button @click="showParent">显示父组件的信息</button>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    Vue.component('parent-cpn', {
+        template: '#parent',
+        data() {
+            return {
+                message: "我是父组件"
+            }
+        },
+        components: {
+            'child-cpn': {
+                template:'#child',
+                methods: {
+                    showParent() {
+                        console.log(this.$parent.message);
+                    }
+                }
+            }
+        }
+    });
+
+    let app = new Vue({
+        el:"#app"
+    });
+</script>
+</body>
+</html>
