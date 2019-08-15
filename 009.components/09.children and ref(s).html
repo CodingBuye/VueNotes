@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <parent-cpn></parent-cpn>
+</div>
+<template id="parentCpn">
+    <div>
+        <child-cpn1 ref="child1"></child-cpn1>
+        <child-cpn2 ref="child2"></child-cpn2>
+        <button @click="showChildCpn">显示所有组组件的信息</button>
+    </div>
+</template>
+
+<template id="childCpn1">
+    <h2>我是子组件1</h2>
+</template>
+
+<template id="childCpn2">
+    <h2>我是子组件2</h2>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+
+    Vue.component('parent-cpn', {
+        template:'#parentCpn',
+        methods: {
+            showChildCpn() {
+                // for (let i=0; i<this.$children.length; i++) {
+                //     console.log(this.$children[i])
+                // }
+
+                console.log(this.$refs.child1);
+                console.log(this.$refs.child2);
+            }
+        },
+        components:{
+            'child-cpn1':   {
+                template:"#childCpn1"
+            },
+            'child-cpn2': {
+                template:"#childCpn2"
+            }
+        }
+    });
+
+    let app = new Vue({
+        el:"#app",
+    });
+</script>
+</body>
+</html>
