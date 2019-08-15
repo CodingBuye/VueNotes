@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my-cpn></my-cpn>
+</div>
+
+<template id="mycpn">
+    {{msg}} <!--访问不到这个数据-->
+    <div>消息：{{message}}</div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data:{
+            msg: 'hello'
+        },
+        components: {
+            'my-cpn':{
+                template:'#mycpn',
+                data() {
+                    return {
+                        message: "Hello World"
+                    }
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
