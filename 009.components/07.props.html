@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <child-cpn :message="message"></child-cpn>
+</div>
+<template id="childCpn">
+    <div>显示的信息：{{message}}</div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el:"#app",
+        data: {
+            message:"Hello World"
+        },
+        components: {
+            'child-cpn':{
+                template: "#childCpn",
+                props: ['message']
+            }
+        }
+    });
+</script>
+</body>
+</html>
