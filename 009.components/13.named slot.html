@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--没有传入任何内容-->
+    <my-cpn></my-cpn>
+    <hr>
+    <!--传入某一个内容-->
+    <my-cpn>
+        <span slot="left">我是返回</span>
+    </my-cpn>
+    <hr>
+    <!--传入所有内容-->
+    <my-cpn>
+        <span slot="left">我是返回</span>
+        <span slot="center">我是标题</span>
+        <span slot="right">我是菜单</span>
+    </my-cpn>
+</div>
+<template id="myCpn">
+    <div>
+        <slot name="left">我是左侧</slot>
+        <slot name="center">我是中间</slot>
+        <slot name="right">我是右侧</slot>
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+
+    Vue.component('my-cpn', {
+        template: "#myCpn"
+    });
+
+    let app = new Vue({
+        el:"#app"
+    });
+</script>
+</body>
+</html>
