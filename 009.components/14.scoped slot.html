@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--列表形式展示-->
+    <my-cpn>
+        <template slot-scope="slotProps">
+            <ul>
+                <li v-for="info in slotProps.data">{{info}}</li>
+            </ul>
+        </template>
+    </my-cpn>
+
+    <!--列表形式展示-->
+    <my-cpn>
+        <template slot-scope="slotProps">
+            <span v-for="info in slotProps.data">{{info}}</span>
+        </template>
+    </my-cpn>
+</div>
+
+
+<template id="myCpn">
+    <div>
+        <slot :data="pLanguages"></slot>
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+
+    Vue.component('my-cpn', {
+        template: "#myCpn",
+        data() {
+            return {
+                pLanguages: [
+                    'JavaScript', 'Python',
+                    'Swift', 'Go', 'C++'
+                ]
+            }
+        }
+    });
+
+    let app = new Vue({
+        el:"#app"
+    });
+</script>
+</body>
+</html>
