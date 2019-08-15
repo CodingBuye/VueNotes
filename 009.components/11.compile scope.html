@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my-cpn v-show="isShow"></my-cpn>
+</div>
+<template id="myCpn">
+    <h2>我能不能显示出来呢？</h2>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+
+    Vue.component('my-cpn', {
+       template:"#myCpn",
+       data() {
+           return {
+               isShow: true
+           }
+       }
+    });
+
+    let app = new Vue({
+        el:"#app",
+        data: {
+            isShow: true
+        }
+    })
+</script>
+</body>
+</html>
