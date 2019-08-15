@@ -7,8 +7,12 @@
 <body>
 <div id="app">
     <!--3. 使用组件-->
-    <my-cpn/>
+    <my-cpn></my-cpn>
+    <div>
+        <my-cpn></my-cpn>
+    </div>
 </div>
+<my-cpn></my-cpn>
 <script src="../js/vue.js"></script>
 <script>
     /**
@@ -16,6 +20,8 @@
      * 1. 创建组件构造器
      * 2. 注册组件
      * 3. 使用组件
+     *
+     * 组件必须挂载在某个Vue实例下，否则它不会生效。
      */
 
     // 1. 创建组件构造器
