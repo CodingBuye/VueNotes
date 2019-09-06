@@ -37,18 +37,18 @@ module.exports = {
                             limit: 8192,
                             name: 'img/[name].[hash:8].[ext]'
                         }
-                    },
-                    {
-                        test: /\.js$/,
-                        exclude: /(node_modules|bower_components)/,
-                        use: {
-                            loader: 'babel-loader',
-                            options: {
-                                presets: ["es2015"]
-                            }
-                        }
                     }
                 ]
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ["es2015"]
+                    }
+                }
             }
         ]
     }
