@@ -49,10 +49,16 @@ module.exports = {
                         presets: ["es2015"]
                     }
                 }
+            },
+            {
+                test: /\.vue$/,
+                use: ['vue-loader']
             }
         ]
     },
     resolve: {
+        // 导入文件时可以省略后缀名
+        extensions: ['.js', '.css', '.vue'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
         }
