@@ -73,5 +73,10 @@ module.exports = {
             template: 'index.html'
         }),
         new uglifyjsWebpackPlugin(),
-    ]
+    ],
+    // 配置服务器
+    devServer: {
+        contentBase: './dist',
+        inline: true
+    }
 };

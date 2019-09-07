@@ -1,7 +1,7 @@
 <!--app.js中代码没有分离-->
 <template>
     <div>
-        <h2 class="title">{{message}}</h2>
+<!--        <h2 class="title">{{message}}</h2>-->
         <button @click="btnClick">按钮</button>
         <h2>{{names}}</h2>
         <Cpn/>
