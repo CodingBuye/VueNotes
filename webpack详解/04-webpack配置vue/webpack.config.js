@@ -1,5 +1,5 @@
 const path = require('path');
-
+const webpack = require('webpack');
 module.exports = {
     // 入口：可以是字符串/数组对象，这里我们入口只有一个。所以写一个字符串即可
     entry: './main.js',
@@ -62,5 +62,8 @@ module.exports = {
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
         }
-    }
+    },
+    plugins: [
+        new webpack.BannerPlugin("最终版权归XXX所有")
+    ]
 };
