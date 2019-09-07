@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1.参数问题
+    // 1.1 两个参数
+    const sum = (num1, num2) => {
+        return num1+num2;
+    };
+
+    // 1.2 一个参数：参数的括号可以省略
+    const power = num => {
+        return num * num;
+    };
+
+    // 2. 代码结构
+    // 2.1 函数代码块中有多行代码时
+    const test = () => {
+        console.log("hello");
+        console.log("world");
+    };
+
+    // 2.2 函数代码块中只有一行代码
+    const mul = (num1, num2) => num1*num2; // 自动return
+    const demo = () => console.log("demo"); // 打印demo，然后return undefined
+
+
+</script>
+</body>
+</html>
