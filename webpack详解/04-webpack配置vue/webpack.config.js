@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+// 处理外层的index.html文件
 const htmlWebpackPlugin = require('html-webpack-plugin');
+// 压缩打包的js文件
+const uglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     // 入口：可以是字符串/数组对象，这里我们入口只有一个。所以写一个字符串即可
     entry: './main.js',
@@ -68,6 +71,7 @@ module.exports = {
         new webpack.BannerPlugin("最终版权归XXX所有"),
         new htmlWebpackPlugin({
             template: 'index.html'
-        })
+        }),
+        new uglifyjsWebpackPlugin(),
     ]
 };
