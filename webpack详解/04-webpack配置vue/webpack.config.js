@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     // 入口：可以是字符串/数组对象，这里我们入口只有一个。所以写一个字符串即可
     entry: './main.js',
@@ -7,7 +8,7 @@ module.exports = {
     output:{
         path: path.resolve(__dirname, 'dist'), // 注意：path通常是一个绝对路径
         filename: 'bundle.js',
-        publicPath: 'dist/'
+        // publicPath: 'dist/'
     },
     module:{
         rules:[
@@ -64,6 +65,9 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.BannerPlugin("最终版权归XXX所有")
+        new webpack.BannerPlugin("最终版权归XXX所有"),
+        new htmlWebpackPlugin({
+            template: 'index.html'
+        })
     ]
 };
