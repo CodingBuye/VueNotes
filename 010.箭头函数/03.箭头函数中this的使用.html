@@ -11,6 +11,14 @@
      * 一个函数作为另外一个函数的参数（最多）
      */
 
+    setTimeout(function () {
+        console.log(this); // window
+    }, 1000);
+
+    setTimeout(function () {
+        console.log(this); // window
+    });
+
     // 结论：箭头函数中的this引用的就是最近作用域中的this
     // 问题：箭头函数中的this是如何查找的？
     // 答案：向外层作用域中，一层层查找this，直到有this的定义
