@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  new Promise((resolve, reject) => {
+    setTimeout(()=>{
+      resolve()
+    }, 1000)
+  }).then(()=>{
+    console.log("第一次调用")
+    return new Promise((resolve, reject)=>{
+      setTimeout(()=>{
+        resolve()
+      }, 1000)
+    }).then(()=>{
+      console.log("第二次调用")
+      return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+          resolve()
+        }, 1000)
+      }).then(()=>[
+        console.log("第三次调用")
+      ])
+    })
+  })
+</script>
+</body>
+</html>
