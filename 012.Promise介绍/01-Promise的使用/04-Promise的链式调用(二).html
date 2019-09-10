@@ -22,7 +22,11 @@
         // 等价于
         // return Promise.resolve(res+"111")
         // 等价于
-        return res+"111"
+        // return res+"111"
+
+      // return Promise.reject("error message")
+      // 等价于
+      throw "error message"
     }).then(res => {
         console.log(res, "第二层的10行代码处理")
         return new Promise(resolve => {
