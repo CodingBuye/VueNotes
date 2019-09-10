@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 需求：两个请求同时处理成功才能进行下一步
+  // 1. 传统做法
+  // var isSolved1 = false
+  // var isSolved2 = false
+  //
+  // $.ajax({
+  //   url:"",
+  //   success: function () {
+  //     isSolved1 = true
+  //     handle()
+  //   }
+  // })
+  //
+  // $.ajax({
+  //   url:"",
+  //   success: function () {
+  //     isSolved2 = true
+  //     handle()
+  //   }
+  // })
+  //
+  // function handle() {
+  //   if(isSolved1 && isSolved2){
+  //     // ......
+  //   }
+  // }
+
+
+  // 2. Promise做法
+  // Promise.all([
+  //   new Promise((resolve, reject) => {
+  //     $.ajax({
+  //       url:"url1",
+  //       success:function (data) {
+  //         resolve(data)
+  //       }
+  //     })
+  //   }),
+  //
+  //   new Promise((resolve, reject)=>{
+  //     $.ajax({
+  //       url:"url2",
+  //       success:function (data) {
+  //         resolve(data)
+  //       }
+  //     })
+  //   })
+  // ]).then(res_arr => {
+  //   url1_res = res_arr[0]
+  //   url2_res = res_arr[1]
+  // })
+
+  Promise.all([
+    new Promise((resolve, reject) => {
+      setTimeout(()=>{
+        resolve({name: "w", age: 18})
+      })
+    }),
+
+    new Promise((resolve, reject)=>{
+      setTimeout(()=>{
+        resolve({name: "x", age: 19})
+      })
+    })
+  ]).then(res => {
+    console.log(res);
+  })
+</script>
+</body>
+</html>
